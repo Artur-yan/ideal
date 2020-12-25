@@ -1,0 +1,6 @@
+<div>
+  <label for="fileUpload" class="G-btn G-sm-btn" [class.G-error]="error">
+    <input type="file" id="fileUpload" accept=".png,.jpg" #fileUpload (change)="uploadFile(fileUpload.files)">
+    {{ viewPath ? 'Change' : 'Upload' }} photo
+  </label>
+</div>

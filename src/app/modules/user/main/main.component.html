@@ -1,0 +1,14 @@
+<div class="P-user">
+  <div class="P-menu">
+    <div class="P-item" routerLink="./profile" [routerLinkActive]="'P-active'">My profile</div>
+    <div class="P-item" routerLink="./order-history" [routerLinkActive]="'P-active'">Order history</div>
+    <div class="P-item" routerLink="./addresses" [routerLinkActive]="'P-active'">Address list</div>
+    <div class="P-item" routerLink="./cards" [routerLinkActive]="'P-active'">Card list</div>
+    <div class="P-item" routerLink="./promo-codes" [routerLinkActive]="'P-active'">Promo codes</div>
+  </div>
+  <div class="P-content">
+    <div class="P-info">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

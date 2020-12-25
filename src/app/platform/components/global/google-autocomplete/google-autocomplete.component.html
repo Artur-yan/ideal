@@ -1,0 +1,7 @@
+<input class="input"
+       type="text"
+       [placeholder]="placeholder"
+       [class.G-error]="error"
+       [(ngModel)]="value"
+       #addresstext
+       (input)="reset()">

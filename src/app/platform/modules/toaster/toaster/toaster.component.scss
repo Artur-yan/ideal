@@ -1,0 +1,99 @@
+@import 'variables';
+
+$width : 400px;
+$right : 20px;
+
+.P-toaster-wrap {
+  width    : $width;
+  position : fixed;
+  right    : $right;
+  bottom   : 50px;
+  z-index  : 20000;
+
+  .P-toaster-item {
+    width                     : 100%;
+    margin-bottom             : 20px;
+    padding                   : 25px;
+    border-radius             : 10px;
+    opacity                   : .8;
+    position                  : relative;
+    transition                : all .2s;
+    animation-name            : startAnim;
+    animation-duration        : .2s;
+    animation-timing-function : ease-in-out;
+    animation-fill-mode       : forwards;
+    cursor                    : pointer;
+
+    &:hover, &.P-active {
+      opacity : 1;
+    }
+
+    &.P-success {
+      background-color : #e7f3ec;
+      border-left: 10px solid $green;
+
+      pre {
+        color : $green;
+      }
+    }
+
+    &.P-warning {
+      background-color : $yellow;
+    }
+
+    &.P-error {
+      background-color : #fde7e8;
+      border-left: 10px solid $red;
+
+      pre {
+        color : $red;
+      }
+    }
+
+    &.P-hide {
+      animation-name : finishAnim;
+    }
+
+    .P-close {
+      position : absolute;
+      top      : 15px;
+      right    : 10px;
+      
+      span {
+        background-color : $white;
+        display          : block;
+        width            : 14px;
+        height           : 2px;
+        transform        : rotate(45deg);
+
+        &:last-child {
+          transform: rotate(-45deg) translate(1px, -1px);
+        }
+      }
+    }
+
+    pre {
+      font-size : 18px;
+      color     : $white;
+      word-break: break-word;
+    }
+  }
+}
+
+@keyframes startAnim {
+  from {
+    transform : translateX($width + $right);
+  }
+  to {
+    transform : translateX(0);
+  }
+}
+
+@keyframes finishAnim {
+  from {
+    transform : translateX(0);
+  }
+  to {
+    transform : translateX($width + $right);
+  }
+}

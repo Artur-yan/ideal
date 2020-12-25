@@ -1,0 +1,28 @@
+<app-modal [alignCenter]="true" (close)="close.emit()">
+  <div class="G-modal G-text-center">
+    <i class="icon-close" (click)="close.emit()"></i>
+    <h2 class="P-title G-mb-2">Enter the code</h2>
+    <p class="P-forgot-desc G-mb-2">
+      We have sent a verification code to the {{ phoneNumber }}
+    </p>
+
+    <form class="G-flex G-flex-column G-align-center G-mb-2" (ngSubmit)="verify()">
+      <div class="G-input-group">
+        <div class="P-verify">
+          <input type="number" (input)="oneDigit($event, 0)" [(ngModel)]="verifyReqData.code1" [class.G-error]="verifyReqData.errors.code" [ngModelOptions]="{standalone: true}">
+          <input type="number" (input)="oneDigit($event, 1)" #code2 [(ngModel)]="verifyReqData.code2" [class.G-error]="verifyReqData.errors.code" [ngModelOptions]="{standalone: true}">
+          <input type="number" (input)="oneDigit($event, 2)" #code3 [(ngModel)]="verifyReqData.code3" [class.G-error]="verifyReqData.errors.code" [ngModelOptions]="{standalone: true}">
+          <input type="number" (input)="oneDigit($event, 3)" #code4 [(ngModel)]="verifyReqData.code4" [class.G-error]="verifyReqData.errors.code" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="G-text-center G-mt-4">
+          <p class="G-fs-20 G-mt-1 G-cursor" *ngIf="resend" (click)="setResendTimeout()">Resend the code</p>
+        </div>
+        <div class="G-text-center G-mt-4" *ngIf="!resend">
+          <p class="G-fs-20 G-mt-1">You can get a new code in</p>
+          <p class="G-fs-20 G-mt-1">00: <span *ngIf="resendTimeout < 10">0</span>{{resendTimeout}}</p>
+        </div>
+      </div>
+      <button type="submit" app-button [pLoader]="buttonLoading">VERIFY</button>
+    </form>
+  </div>
+</app-modal>

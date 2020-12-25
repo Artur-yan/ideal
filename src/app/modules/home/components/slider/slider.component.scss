@@ -1,0 +1,79 @@
+@import 'variables';
+
+.P-slider-content {
+  margin-top : 20px;
+  width      : 100%;
+  overflow   : hidden;
+  height     : 80vh;
+  position   : relative;
+
+  .P-pages {
+    position        : absolute;
+    transform       : translate(-50%, -50%);
+    top             : 50%;
+    right           : 50px;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : flex-end;
+    justify-content : center;
+
+    span {
+      color       : $white;
+      font-size   : $font-20;
+      line-height : 3;
+      cursor      : pointer;
+
+      &.P-active {
+        font-weight : bold;
+      }
+
+      &:hover {
+        font-weight : bold;
+      }
+    }
+  }
+
+  .P-slider {
+    width      : 100%;
+    height     : 100%;
+    display    : flex;
+    transition : 0.6s;
+
+    .P-slider-item {
+      min-width     : 100%;
+      border-radius : 5px;
+
+      .P-dream-home {
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+        height      : 100%;
+        width       : 100%;
+        display     : flex;
+        flex-direction: column;
+        justify-content : center;
+
+        .P-details {
+          width: 35%;
+          margin-left: 90px;
+
+          h1 {
+            color: $white;
+            font-weight : bold;
+            font-size: 80px;
+            line-height: 1.1;
+          }
+          p {
+            font-size: $font-24;
+            line-height: 1.8;
+            color: white;
+          }
+
+          button {
+            margin-top : 30px;
+            color: black;
+            background: white;
+          }
+        }
+      }
+    }
+  }
+}

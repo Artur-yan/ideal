@@ -1,0 +1,48 @@
+@import "variables";
+
+.P-promo {
+
+  .P-table {
+    width          : 30%;
+    display        : flex;
+    flex-direction : column;
+
+
+    .P-table-header {
+      display          : flex;
+      align-items      : center;
+      min-height       : 60px;
+      justify-content: space-between;
+      background-color : $light-gray;
+      padding          : 0 30px;
+      font-size        : $font-20;
+    }
+
+    .P-table-row {
+      display     : flex;
+      align-items : center;
+      min-height  : 60px;
+      justify-content: space-between;
+      padding     : 0 30px;
+      font-size   : $font-18;
+
+      .P-status {
+        &.P-in-progress {
+          color : $gray-dark-2
+        }
+
+        &.P-finished {
+          color : $green
+        }
+
+        &.P-canceled {
+          color : $red
+        }
+      }
+    }
+
+    .P-status {
+      text-align : center;
+    }
+  }
+}

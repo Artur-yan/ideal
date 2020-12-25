@@ -1,0 +1,81 @@
+@import 'variables';
+
+/* These are rewriting styles for other packages */
+
+/* Icons */
+
+[class*=icon-] {
+  font-size   : 20px;
+  user-select : none;
+}
+
+.icon-ic_pending {
+  color: $yellow;
+}
+
+.icon-ic_confirmed {
+  color: $light-green;
+}
+
+.icon-ic_removed {
+  color: $red;
+}
+
+// #region Prime ng Calendar
+
+.ui-calendar {
+  width : 100%;
+
+  input {
+    text-indent : 0;
+  }
+
+  > .ui-inputtext {
+    width      : 100%;
+    height     : $input-height;
+    border     : 1px solid $light-gray;
+    box-shadow : none !important;
+    cursor     : pointer;
+
+    &:hover, &:focus {
+      border-color : $light-gray !important;
+    }
+  }
+
+  .ui-datepicker {
+    background-color : $white;
+
+    table {
+      td {
+        > a.ui-state-active {
+          background-color : $light-gray !important;
+        }
+      }
+    }
+  }
+}
+
+.G-error {
+  .ui-inputtext {
+    border-color : $red !important;
+  }
+}
+
+.cdk-drag-placeholder {
+
+  > div {
+    opacity: 0 !important;
+  }
+}
+
+.ck-editor {
+
+  .ck {
+    font-size: 12px !important;
+  }
+
+  .ck-content {
+    min-height: 200px;
+  }
+}
+

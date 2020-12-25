@@ -1,0 +1,36 @@
+@import "variables";
+
+.P-confirm-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding    : 30px 50px;
+  width      : 460px;
+  text-align : center;
+
+  .P-confirm-btns {
+
+    button {
+      font-size: $font-24;
+      max-width: 140px;
+    }
+  }
+
+  .P-title {
+    font-size: $font-24;
+    font-weight: bold;
+    padding-bottom : 40px;
+  }
+
+  .P-desc {
+    font-size: $font-24;
+  }
+
+  .P-confirm-btns {
+    margin-top : 30px;
+
+    button {
+      margin-left : 20px;
+    }
+  }
+}

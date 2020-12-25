@@ -1,0 +1,18 @@
+
+<div class="P-toaster-wrap">
+  <div
+    class="P-toaster-item"
+    *ngFor="let item of elements"
+    [class.P-active]="item.disableRemove"
+    [class.P-hide]="!item.isActive"
+    [class.P-success]="item.status === ToasterEnum.Success"
+    [class.P-warning]="item.status === ToasterEnum.Warning"
+    [class.P-error]="item.status === ToasterEnum.Error"
+    (click)="disableRemove(item.id)">
+    <div class="P-close" (click)="hideItem(item.id, $event)">
+      <span></span>
+      <span></span>
+    </div>
+    <pre>{{ item.text }}</pre>
+  </div>
+</div>

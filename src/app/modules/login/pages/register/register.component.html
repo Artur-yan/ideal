@@ -1,0 +1,28 @@
+<h2 class="G-text-center G-bold G-mb-4">Create account</h2>
+<app-social-login></app-social-login>
+
+<div class="P-or">
+  <div class="P-line"></div>
+  <span class="G-fs-22">or</span>
+  <div class="P-line"></div>
+</div>
+
+<form class="G-flex G-flex-column G-align-center G-mb-2" (ngSubmit)="sendVerificationCode()">
+  <div class="G-input-group">
+    <app-dropdown [list]="userTypeList" [(value)]="userType"></app-dropdown>
+  </div>
+
+  <div class="G-input-group G-flex" *ngIf="reqData.registerType === RegisterTypeEnum.Phone">
+    <div class="P-drop-down">
+      <app-dropdown [disable]='true' [list]="userPhoneNumber" [(value)]="reqData.phoneCode"></app-dropdown>
+    </div>
+    <input placeholder="Enter your phone number" type="number" [autoValidation]="reqData" [(ngModel)]="reqData.phoneNumber" [class.G-error]="reqData.errors.phoneNumber" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="G-input-group" *ngIf="reqData.registerType === RegisterTypeEnum.Email">
+    <input placeholder="Enter your email address" type="text" [(ngModel)]="reqData.email" [autoValidation]="reqData" [class.G-error]="reqData.errors.email" [ngModelOptions]="{standalone: true}">
+  </div>
+
+  <button type="submit" app-button [pLoader]="buttonLoading">RECEIVE CODE</button>
+</form>
+
+<p (click)="changeVerifyType()" class="G-text-center G-fs-20 G-bold G-mt-1 G-cursor">Create with {{ reqData.registerType === RegisterTypeEnum.Phone ? 'Email' : 'Phone number' }}</p>

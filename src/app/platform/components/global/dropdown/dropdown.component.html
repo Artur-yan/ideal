@@ -1,0 +1,18 @@
+<div class="P-select-box" [class.disabled]="disable" app-clickOutside (clickOutside)="close()">
+  <div class="P-select" (click)="toggle()" [class.G-error]="error">
+    <div class="P-select-title">
+      <p [class.selected]="value || value === 0 || value === false"><img [src]="selectedItem.photo" *ngIf="selectedItem?.photo" alt=""> {{ selectedItem?.name || placeholder }}</p>
+    </div>
+    <i class="icon-arrow-down P-select-title-icon" [class.P-open]="isOpen"></i>
+  </div>
+  <div class="P-select-options" [class.show]="isOpen">
+    <div class="P-select-option"
+         *ngFor="let item of list; let index = index"
+         [class.P-active]="isSelected(item)"
+         [class.P-disabled-row]="isDisabled(item)"
+         (click)="change(item)">
+      <p class="G-flex G-justify-between G-align-center"><img [src]="item.photo" *ngIf="item.photo" alt=""> {{item.name}}</p>
+    </div>
+  </div>
+</div>
+

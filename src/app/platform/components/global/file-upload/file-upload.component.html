@@ -1,0 +1,6 @@
+<div class="P-wrap G-flex G-flex-wrap">
+  <label for="fileUpload" class="P-item G-flex G-center" [class.G-error]="error" [bgImage]="viewPath">
+    <input type="file" id="fileUpload" #fileUpload (change)="uploadFile(fileUpload.files)">
+    <i class="icon-add_1" *ngIf="!viewPath"></i>
+  </label>
+</div>

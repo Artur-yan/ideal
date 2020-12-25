@@ -1,0 +1,25 @@
+
+<div class="P-wrap G-mb-2">
+  <div class="P-top G-flex G-align-center G-justify-between">
+    <a class="P-back G-flex G-align-center" [routerLink]="route" *ngIf="route; else titleTmp">
+      <i class="icon-back P-back-icon G-mr-1"></i>
+      <h6>{{ title }}</h6>
+    </a>
+
+    <ng-template #titleTmp>
+      <h6 *ngIf="!backWithLocation; else backTmp">{{ title }}</h6>
+
+      <ng-template #backTmp>
+        <a class="P-back G-flex G-align-center" (click)="back()">
+          <i class="icon-back P-back-icon G-mr-1"></i>
+          <h6>{{ title }}</h6>
+        </a>
+      </ng-template>
+    </ng-template>
+
+
+    <ng-content></ng-content>
+  </div>
+
+  
+</div>

@@ -1,0 +1,38 @@
+@import "variables";
+
+.P-toolbar-wrap {
+  position : relative;
+
+  .P-toolbar-btn {
+    display     : flex;
+    align-items : center;
+    padding     : 10px 4px;
+    cursor      : pointer;
+
+    i {
+      font-size : 14px;
+      color     : $light-gray;
+    }
+  }
+
+  .P-toolbar-content {
+    min-width        : 130px;
+    padding          : 10px 0;
+    position         : absolute;
+    top              : calc(100% + 5px);
+    right            : 100%;
+    display          : none;
+    border-radius    : 4px;
+    box-shadow       : 0 0 5px rgba(0, 0, 0, .2);
+    z-index          : 1;
+    background-color : $white;
+
+    &.show {
+      display : block;
+    }
+  }
+
+  .P-rotate {
+    transform: rotate(90deg);
+  }
+}

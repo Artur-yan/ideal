@@ -1,0 +1,196 @@
+@import "variables";
+
+.P-header {
+  display         : flex;
+  flex-direction  : column;
+  justify-content : space-around;
+  height          : $header-height;
+  padding         : 5px 50px 5px 60px;
+  position        : fixed;
+  width           : 100%;
+  z-index         : 1;
+  background      : $white;
+  top             : 0;
+
+  .P-top {
+
+    .P-info {
+      display         : flex;
+      align-items     : center;
+      justify-content : space-between;
+      width           : 100%;
+      max-width       : 450px;
+
+      .P-item {
+        display  : flex;
+        position : relative;
+        cursor   : pointer;
+
+
+        .P-notification-box {
+          background : $white;
+          position   : absolute;
+          min-width  : 500px;
+          right      : -78px;
+          top        : 34px;
+          box-shadow : $shadow;
+          padding    : 17px 24px;
+
+          .P-not-header {
+            display       : flex;
+            align-items   : center;
+            text-align    : left;
+            border-bottom : solid 1px $light-gray;
+            margin-bottom : 20px;
+
+            p {
+              font-size      : $font-22;
+              font-weight    : 500;
+              padding-bottom : 15px;
+            }
+          }
+
+          .P-items {
+            overflow         : scroll;
+            max-height       : 350px;
+            background-color : $white;
+
+            .P-item {
+              display       : flex;
+              margin-bottom : 10px;
+
+              .P-img {
+                min-width        : 80px;
+                height           : 80px;
+                background-color : #8E8E8E;
+                border-radius    : 4px;
+                margin-right     : 10px;
+              }
+
+              .P-desc {
+                display        : flex;
+                flex-direction : column;
+
+                .P-title {
+                  font-size   : $font-22;
+                  font-weight : 500;
+                }
+
+                .P-desc {
+                  color : $gray-dark3
+                }
+
+                .P-date {
+                  color : $gray-dark3
+                }
+              }
+            }
+          }
+        }
+
+        .P-profile-menu {
+          background : $white;
+          position   : absolute;
+          min-width  : 200px;
+          right      : 0;
+          top        : 34px;
+          box-shadow : $shadow;
+          padding    : 10px 0;
+
+          .P-line {
+            background-color : #F2F2F2;
+            margin           : 8px 0;
+            width            : 100%;
+            height           : 2px;
+          }
+
+          p,a {
+            font-size : $font-16;
+            padding   : 10px 20px;
+            display   : block;
+            
+            &:hover {
+              background-color : $light;
+            }
+          }
+        }
+
+        img {
+
+        }
+
+        span {
+          position         : absolute;
+          display          : flex;
+          justify-content  : center;
+          align-items      : center;
+          border-radius    : 50%;
+          width            : 23px;
+          height           : 23px;
+          box-shadow       : $shadow;
+          top              : -11px;
+          right            : -16px;
+          background-color : $white;
+        }
+      }
+    }
+
+  }
+
+  .P-bottom {
+    display         : flex;
+    width           : 100%;
+    justify-content : space-between;
+    align-items     : center;
+
+    .P-nav {
+      display         : flex;
+      font-size       : $font-20;
+      justify-content : space-between;
+      width           : 50%;
+      max-width       : 900px;
+
+      .P-nav-item {
+        display     : flex;
+        align-items : center;
+        cursor      : pointer;
+      }
+    }
+
+    .P-search {
+      transition : width .3s;
+      cursor     : pointer;
+      display    : flex;
+      width      : 25%;
+
+      &.P-opened {
+        width : 35%;
+
+        input {
+          background    : $white;
+          border-bottom : 2px solid $gray-dark;
+          border-radius : 0;
+        }
+
+      }
+
+      input {
+        height     : 56px;
+        padding    : 12px;
+        width      : 100%;
+        border     : none;
+        background : $light-gray;
+
+        &::-webkit-input-placeholder {
+          color       : $gray;
+          font-weight : 500;
+          font-size   : 19px;
+        }
+      }
+
+      img {
+        margin-left : -35px;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import "variables";
+
+.P-wrap {
+
+  .P-item {
+    width  : 150px;
+    height : 120px;
+    margin : 0 10px 10px 0;
+    border : 1px solid $light-gray;
+
+    span {
+      font-size : 25px;
+      color     : $light-gray;
+    }
+  }
+}

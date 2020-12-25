@@ -1,0 +1,16 @@
+<div class="P-slider-content">
+  <div class="P-slider" [style.transform]="'translateX(-' + (sliderIndex * 100) + '%)'">
+    <div class="P-slider-item" *ngFor="let image of images; let i = index" [bgImage]="image">
+      <div *ngIf="i === 0" class="P-dream-home">
+       <div class="P-details">
+         <h1>Create Your Dream Home</h1>
+         <p>Choose the design of your dreams from a variety of interiors created by our designer , and we will provide you with all the materials you need.</p>
+         <button class="G-white-btn G-md-btn" app-button>Learn more</button>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div class="P-pages">
+    <span (click)="next(i)" *ngFor="let image of images; let i = index" [class.P-active]="i === sliderIndex">{{ i < 10 ? '0' : '' }}{{ i + 1 }}</span>
+  </div>
+</div>

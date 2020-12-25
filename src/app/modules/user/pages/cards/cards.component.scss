@@ -1,0 +1,124 @@
+@import "variables";
+
+.P-card {
+
+  .P-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .P-add {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 309px;
+      height: 156px;
+      border: 1px dashed $light-gray2;
+      opacity: 0.5;
+      cursor: pointer;
+
+      .P-icon-loc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border: solid $black 1px;
+        border-radius: 50%;
+      }
+    }
+
+    .P-card-box {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 309px;
+      height: 156px;
+      margin-right : 50px;
+      padding : 10px 15px;
+      opacity: 0.5;
+      border: 1px solid $light-gray2;
+      border-radius: 4px;
+
+      .P-check {
+        display: none;
+      }
+
+      .P-card-header {
+        display: flex;
+        justify-content: space-between;
+
+        img {
+          width: 45px;
+          height: 45px;
+        }
+
+        .P-title {
+          font-size: $font-22;
+        }
+
+        .P-actions {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 45px;
+
+          i {
+            font-size: $font-16;
+          }
+        }
+      }
+
+      .P-card-number {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $font-20;
+        font-weight: 500;
+      }
+
+      .P-details {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.3;
+
+        .P-name {
+          font-size: $font-14;
+          color: $gray;
+        }
+
+        .P-data {
+          font-size: $font-14;
+        }
+      }
+
+      &.P-active {
+        border: 1px solid $red;
+        opacity: 1;
+
+        .P-check {
+          position: absolute;
+          right: -11px;
+          top: -13px;
+          width: 30px;
+          height: 30px;
+          background-color: $red;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+
+          i {
+            color: $white;
+            font-size: $font-16;
+          }
+        }
+
+      }
+    }
+  }
+}

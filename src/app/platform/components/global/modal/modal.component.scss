@@ -1,0 +1,34 @@
+@import "variables";
+
+
+.P-modal-wrap {
+
+  width    : 100vw;
+  height   : 100vh;
+  position : fixed;
+  top      : 0;
+  left     : 0;
+  z-index  : $modal-z;
+  overflow : auto;
+
+  &.P-center {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+  }
+
+  .P-modal-bg {
+    width            : 100%;
+    height           : 100%;
+    position         : fixed;
+    top              : 0;
+    left             : 0;
+    background-color : rgba(0,0,0,0.3);
+  }
+
+  .P-modal-container {
+    border-radius : $radius;
+    position      : relative;
+    z-index       : 1;
+  }
+}

@@ -1,0 +1,50 @@
+@import "variables";
+
+.P-add-addresses {
+  .P-form {
+    padding-bottom : 40px;
+    border-bottom  : solid 2px $light-gray;
+
+    .G-input-group {
+      max-width : 50%;
+    }
+
+    .P-textarea {
+      .G-input-group {
+        max-width : 100%;
+      }
+    }
+
+    .P-checkbox {
+      //width: 18px;
+      display      : flex;
+      height       : 18px;
+      margin-top   : 20px;
+      padding-left : 15px;
+      cursor       : pointer;
+
+      input {
+        margin-right : 15px;
+        cursor       : pointer;
+        width        : 18px;
+        height       : 18px;
+      }
+    }
+
+    .P-floor {
+      width           : 53%;
+      display         : flex;
+      align-items     : center;
+      justify-content : space-between;
+    }
+  }
+
+  .P-row {
+    display : flex;
+    width   : 100%;
+
+    .G-input-group {
+      margin-right : 15px;
+    }
+  }
+}

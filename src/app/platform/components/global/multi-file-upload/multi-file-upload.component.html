@@ -1,0 +1,10 @@
+<div class="P-wrap G-flex G-flex-wrap">
+  <label for="file" class="P-item G-flex G-center" [class.G-error]="error">
+    <input type="file" id="file" [multiple]="true" #file (change)="uploadFiles(file.files)">
+    <span>+</span>
+  </label>
+
+  <div *ngFor="let item of files; let index = index" class="P-item G-flex G-justify-end G-align-start" [bgImage]="item.viewPath">
+    <i class="icon-delete" (click)="delete(index)"></i>
+  </div>
+</div>

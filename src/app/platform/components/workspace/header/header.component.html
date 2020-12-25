@@ -1,0 +1,71 @@
+<div class="P-header">
+  <div class="P-top G-flex G-justify-between">
+    <img class="G-cursor" src="assets/images/ideal.png" alt="logo" routerLink="/home">
+    <div class="P-info">
+      <div class="P-item">
+        <span>2</span>
+        <img src="assets/svg/compare.svg" alt="">
+      </div>
+      <div class="P-item">
+        <img src="assets/svg/heart.svg" alt="">
+      </div>
+      <div class="P-item">
+        <img src="assets/svg/basket.svg" alt="">
+      </div>
+      <div *ngIf="isLoggedIn" class="P-item" (click)="showNotifications(true)" app-clickOutside (clickOutside)="showNotifications(false)">
+        <span *ngIf="unseenNotifications > 0">{{unseenNotifications}}</span>
+        <img src="assets/svg/notification.svg" alt="">
+        <div class="P-notification-box" *ngIf="notificationsPopUp">
+          <div class="P-not-header">
+            <p>Notification</p>
+          </div>
+          <div class="P-items" infinityScroll [page]="pagingReq.page" [pageCount]="pagingReq.count" [fromElement]="true" (update)="updatePageGetNotifications()">
+            <div class="P-item" *ngFor="let item of notifications">
+              <div class="P-img" [bgImage]="item.image"></div>
+              <div class="P-desc">
+                <div class="P-title">{{ item.title }}</div>
+                <div class="P-desc">{{ item.message }}</div>
+                <div class="P-date">{{ item.sendDate | date: 'dd MMM yyyy mm:HH' }}</div>
+              </div>
+            </div>
+            <p class="G-text-center" *ngIf="notifications.length === 0">Notifications is empty...</p>
+          </div>
+        </div>
+      </div>
+      <div class="P-item" (click)="toProfile()" app-clickOutside (clickOutside)="closeProfile()">
+        <img src="assets/svg/profile.svg" alt="">
+        <div class="P-profile-menu" *ngIf="profileMenu">
+          <div class="P-menu-items">
+            <a (click)="closeProfile()" routerLink="/user/profile">My Profile</a>
+            <a (click)="closeProfile()" routerLink="/user/order-history">Order history</a>
+            <a (click)="closeProfile()" routerLink="/user/addresses">Address list</a>
+            <a (click)="closeProfile()" routerLink="/user/cards">Card list</a>
+            <a (click)="closeProfile()" routerLink="/user/promo-codes">Promo codes</a>
+            <div class="P-line"></div>
+            <p (click)="openLogoutModal()">Log out</p>
+          </div>
+        </div>
+      </div>
+      <div class="G-flex G-align-center">
+        <div class="G-fs-22">ENG</div>
+        <i class="G-arrow-down-md G-arrow-down"></i>
+      </div>
+    </div>
+  </div>
+  <div class="P-bottom">
+    <div class="P-nav">
+      <div class="P-nav-item">Catalog <i class="G-arrow-down-sm G-arrow-down"></i></div>
+      <div class="P-nav-item">New product</div>
+      <div class="P-nav-item">Discount products</div>
+      <div class="P-nav-item">Collections</div>
+      <div class="P-nav-item">Services</div>
+      <div class="P-nav-item">News and Events</div>
+    </div>
+    <div class="P-search" [class.P-opened]="isOpen" (click)="open()" app-clickOutside  (clickOutside)="close()">
+      <input type="text" placeholder="Search..." name="search">
+      <img src="assets/svg/search.svg" alt="">
+    </div>
+  </div>
+</div>
+
+<confirm-modal title="Log out" *ngIf="logoutModalState" text="Are you sure you want to log out from your account?" (close)="closeLogoutModal()" (confirm)="logOut()"></confirm-modal>

@@ -1,0 +1,52 @@
+@import "variables";
+
+.P-sign-in-page {
+  height : 60vh;
+
+  .P-forgot-desc {
+    font-size  : $font-24;
+    width      : 70%;
+    margin     : 0 auto 20px auto;
+    text-align : center;
+
+    .P-to-change {
+      color  : $blue;
+      cursor : pointer;
+    }
+  }
+
+  .P-sign-in-suggestions {
+    width  : 60%;
+    margin : 0 auto;
+  }
+
+  .P-content {
+    width            : 580px;
+    background-color : transparentize($white, .2);
+
+    .P-verify {
+      display         : flex;
+      justify-content : space-between;
+
+      input {
+        width      : 20%;
+        min-width  : 90px;
+        height     : 90px;
+        text-align : center;
+        font-size  : 40px;
+      }
+    }
+
+    button {
+      width            : 100%;
+      color            : $white;
+      background-color : $main-color;
+      max-width        : unset;
+    }
+
+    input {
+      width : 100%;
+      color : $black;
+    }
+  }
+}

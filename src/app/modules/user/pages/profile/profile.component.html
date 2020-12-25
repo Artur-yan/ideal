@@ -1,0 +1,2 @@
+<app-my-profile *ngIf="userTypeValue === UserTypeEnum.Physical"></app-my-profile>
+<app-juridical-profile *ngIf="userTypeValue === UserTypeEnum.Juridical || userTypeValue === UserTypeEnum.Partner"></app-juridical-profile>

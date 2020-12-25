@@ -1,0 +1,9 @@
+
+<div class="P-context-menu" (contextmenu)="context($event)">
+  <div app-clickOutside (clickOutside)="clear()" *ngIf="x && y" [enableContextClick]="true">
+    <div class="P-context-menu-content" [style.left]="x + 'px'" [style.top]="y + 'px'" (click)="stopEvent($event)">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,60 @@
+<div class="P-add-addresses">
+  <p class="G-fs-22 G-mb-3">Add new address</p>
+  <div class="P-form">
+    <form class="G-flex G-flex-column G-mb-2" (ngSubmit)="!addressId ? addAddress() : editAddress()">
+      <div class="P-row">
+        <div class="G-input-group">
+          <label>Title</label>
+          <input [value]="addressReqData.title" [autoValidation]="addressReqData" type="text" name="title" [(ngModel)]="addressReqData.title" [class.G-error]="addressReqData.errors.title">
+        </div>
+        <div class="G-input-group">
+          <label>Address</label>
+          <div>
+            <app-google-autocomplete
+              [value]="addressReqData.addressName"
+              [error]="addressReqData.errors.addressName"
+              (setAddress)="getAddress($event)">
+            </app-google-autocomplete>
+          </div>
+        </div>
+      </div>
+      <div class="P-row">
+        <div class="G-input-group">
+          <label>Apartment</label>
+          <input type="text" name="apartment" [(ngModel)]="addressReqData.apartment" [class.G-error]="addressReqData.errors.apartment">
+        </div>
+        <div class="G-input-group">
+          <label>Entrance</label>
+          <input type="text" name="entrance" [(ngModel)]="addressReqData.entrance" [class.G-error]="addressReqData.errors.entrance">
+        </div>
+      </div>
+      <div class="P-row">
+        <div class="P-row P-floor">
+          <div class="G-input-group">
+            <label>Floor</label>
+            <input type="text" name="floor" [(ngModel)]="addressReqData.floor"
+                   [class.G-error]="addressReqData.errors.floor">
+          </div>
+          <div class="G-input-group G-align-center">
+            <div class="P-checkbox" (click)="elevator()">
+              <div [checkbox]="addressReqData.hasElevator" class="G-mr-1"></div>
+              <span>Elevator</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="P-row P-textarea">
+
+        <div class="G-input-group">
+          <label>Additional information</label>
+          <textarea type="text" name="additionalInformation" [(ngModel)]="addressReqData.additionalInformation" [class.G-error]="addressReqData.errors.additionalInformation"></textarea>
+          <div class="P-checkbox" (click)="isDefault()">
+            <div [checkbox]="addressReqData.isDefault" class="G-mr-1"></div>
+            <span>Set as default address</span>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="G-md-1-btn" app-button [pLoader]="addressBtnLoading">Save</button>
+    </form>
+  </div>
+</div>

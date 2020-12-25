@@ -1,0 +1,96 @@
+@import "variables";
+
+.P-order {
+
+  .P-table {
+    width          : 100%;
+    display        : flex;
+    flex-direction : column;
+
+    .P-table-headers {
+      background-color : $light-gray;
+      padding          : 0 30px;
+
+      .P-status {
+        &.P-in-progress {
+          color : $gray-dark-2
+        }
+
+        &.P-finished {
+          color : $green
+        }
+
+        &.P-canceled {
+          color : $red
+        }
+      }
+
+      .P-table-header:nth-child(1) {
+        border-bottom: solid #dadada 2px;
+      }
+
+      .P-table-header {
+        display          : flex;
+        align-items      : center;
+        min-height       : 60px;
+        font-size        : $font-20;
+      }
+    }
+
+    .P-table-row {
+      display     : flex;
+      align-items : center;
+      min-height  : 60px;
+      padding     : 0 30px;
+      font-size   : $font-18;
+      cursor      : pointer;
+
+      .P-rate {
+        text-decoration: underline;
+      }
+
+      .P-img {
+        width: 60px;
+        height: 60px;
+        box-shadow: 0 3px 6px #E6E6E629;
+        border-radius: 4px;
+      }
+    }
+
+    .P-col {
+      display: flex;
+      align-items: center;
+      flex : 1;
+    }
+
+    .P-status, .P-rate {
+      justify-content: center;
+    }
+  }
+
+  .P-price-details {
+    display: flex;
+    justify-content: flex-end;
+    padding-top : 50px;
+
+    .P-prices {
+      font-size: $font-22;
+      display: flex;
+      flex-direction: column;
+      max-width: 490px;
+      width: 100%;
+
+      .P-item {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom : 15px;
+      }
+
+      .P-total {
+        border-top: solid #dadada 2px;
+        padding-top : 10px;
+      }
+    }
+  }
+}
+

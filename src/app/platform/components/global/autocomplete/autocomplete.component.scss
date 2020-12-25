@@ -1,0 +1,61 @@
+@import "variables";
+
+
+:host {
+  width : 100%;
+}
+
+.P-select-box {
+
+  width    : 100%;
+  height   : $input-height;
+  position : relative;
+
+  input {
+    width : 100%;
+  }
+
+  .P-select-options {
+    width            : calc(100% + 1px);
+    min-height       : 50px;
+    max-height       : 180px;
+    padding          : 5px 0;
+    border           : 1px solid $light-gray;
+    border-radius    : $radius;
+    display          : none;
+    overflow-x       : hidden;
+    overflow-y       : auto;
+    position         : absolute;
+    top              : $input-height;
+    left             : 0;
+    z-index          : 5;
+    background-color : $white;
+    margin-bottom    : 10px;
+
+    &.show {
+      display : block;
+    }
+
+    .P-select-option {
+
+      width         : 100%;
+      height        : auto;
+      padding       : 8px 4px;
+      margin-bottom : 5px;
+      cursor        : pointer;
+
+      i {
+        font-size : 18px;
+        opacity   : 0;
+      }
+
+      &:hover, &.P-active {
+        background-color : $light;
+
+        i {
+          opacity : 1;
+        }
+      }
+    }
+  }
+}

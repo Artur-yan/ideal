@@ -1,0 +1,86 @@
+
+$content-padding : 20px;
+$row-height      : 60px;
+
+.G-table-wrap {
+  margin-top       : 20px;
+  padding          : 10px 0 0 !important;
+  border-radius    : $radius;
+  overflow-x       : auto;
+  background-color : $white;
+
+  .G-th {
+    width         : fit-content;
+    min-width     : 100%;
+    height        : $row-height;
+    padding       : 0 $content-padding;
+    display       : flex;
+    align-items   : center;
+    border-bottom : 1px solid $light;
+
+    h6 {
+      font-size : 14px;
+    }
+  }
+
+  .G-tb {
+    min-height : 60vh;
+  }
+}
+
+.G-tr {
+  position         : relative;
+  min-height       : $row-height;
+  padding          : 0 $content-padding;
+  border-bottom    : 2px solid $light;
+  display          : flex;
+  align-items      : center;
+  background-color : $white;
+
+  .G-actions {
+    transition : all .1s;
+  }
+
+  &:hover {
+    background-color : $light;
+  }
+}
+
+.G-tc {
+  flex-grow     : 1;
+  padding-right : 2%;
+
+  p {
+    padding       : 10px 0;
+    overflow      : hidden;
+    text-overflow : ellipsis;
+  }
+
+  &.G-middle {
+    max-width : 33%;
+  }
+
+  &.G-short {
+    flex-basis : 50px;
+    flex-grow  : 0;
+    min-width  : 65px;
+    padding    : 0
+  }
+
+  &:not(.G-short) {
+    width     : 100%;
+    min-width : 150px;
+  }
+
+  .G-bg-image {
+    margin-right : 10px;
+  }
+}
+
+.G-table-empty {
+  height          : 50vh;
+  min-height      : 200px;
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+}

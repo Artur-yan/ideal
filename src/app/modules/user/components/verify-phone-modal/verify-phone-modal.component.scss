@@ -1,0 +1,36 @@
+@import "variables";
+
+.G-modal {
+  display        : flex;
+  flex-direction : column;
+
+  .icon-close {
+    margin-left   : auto;
+    margin-bottom : 40px;
+  }
+
+  .P-forgot-desc {
+    font-size  : $font-24;
+    width      : 70%;
+    margin     : 0 auto 20px auto;
+    text-align : center;
+
+    .P-to-change {
+      color  : $blue;
+      cursor : pointer;
+    }
+  }
+
+  .P-verify {
+    display         : flex;
+    justify-content : space-between;
+
+    input {
+      width      : 20%;
+      min-width  : 90px;
+      height     : 90px;
+      text-align : center;
+      font-size  : 40px;
+    }
+  }
+}

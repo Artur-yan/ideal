@@ -1,0 +1,68 @@
+<div class="P-personal-info">
+  <p class="G-fs-22 G-mb-3">Juridical information</p>
+  <div class="P-form">
+    <form class="G-flex G-flex-column G-mb-2" (ngSubmit)="changePersonalInfo()">
+      <div class="P-row">
+        <div class="G-input-group">
+          <label>Company name</label>
+          <input type="text" name="companyName" [autoValidation]="reqData" [(ngModel)]="reqData.companyName" [class.G-error]="reqData.errors.companyName">
+        </div>
+        <div class="G-input-group">
+          <label>Tax Identification Number</label>
+          <input type="text" name="taxNumber" [autoValidation]="reqData" [(ngModel)]="reqData.taxNumber" [class.G-error]="reqData.errors.taxNumber">
+        </div>
+      </div>
+      <div class="P-row">
+        <div class="G-input-group">
+          <label>Bank name</label>
+          <input type="text" name="bankName" [autoValidation]="reqData" [(ngModel)]="reqData.bankName" [class.G-error]="reqData.errors.bankName">
+        </div>
+        <div class="G-input-group">
+          <label>Juridical address</label>
+          <app-google-autocomplete [value]="reqData.addressName" (setAddress)="getAddress($event)"></app-google-autocomplete>
+        </div>
+      </div>
+      <div class="P-row">
+        <div class="G-input-group">
+          <label>Account number</label>
+          <input type="text" name="accountNumber" [autoValidation]="reqData" [(ngModel)]="reqData.accountNumber" [class.G-error]="reqData.errors.accountNumber">
+        </div>
+        <div class="G-input-group">
+          <div class="G-flex G-justify-between">
+            <label>Phone number</label>
+            <span *ngIf="(reqData.secondPhoneCode + phoneNumber) !== user.phoneNumber && validatePhone()" class="G-cursor G-red-color" (click)="openVerifyPhone()">Verify</span>
+          </div>
+          <div class="P-phone">
+            <div class="P-drop-down">
+              <app-dropdown [disable]="true" [list]="userPhoneNumber" [(value)]="reqData.secondPhoneCode"></app-dropdown>
+            </div>
+            <input type="number" name="phoneNumber" [(ngModel)]="phoneNumber">
+          </div>
+        </div>
+      </div>
+      <div class="P-row">
+        <div class="G-input-group">
+          <label>Second phone number</label>
+          <div class="P-phone">
+            <div class="P-drop-down">
+              <app-dropdown [disable]="true" [list]="userPhoneNumber" [(value)]="reqData.secondPhoneCode"></app-dropdown>
+            </div>
+            <input type="number" name="secondPhoneNumber" [autoValidation]="reqData" [(ngModel)]="reqData.secondPhoneNumber" [class.G-error]="reqData.errors.secondPhoneNumber">
+          </div>
+        </div>
+        <div class="G-input-group">
+          <div class="G-flex G-justify-between">
+            <label>Email</label>
+            <span *ngIf="email !== user.email && validateEmail()" class="G-cursor G-red-color" (click)="openVerify()">Verify</span>
+          </div>
+          <input type="text" name="email" [(ngModel)]="email">
+        </div>
+      </div>
+      <button type="submit" class="G-md-1-btn" app-button [pLoader]="perInfoBtnLoading">Save</button>
+    </form>
+  </div>
+  <app-password></app-password>
+</div>
+
+<app-verify-modal *ngIf="verifyIsOpen" (close)="closeVerify()" (update)="updateEmail($event)" [email]="email"></app-verify-modal>
+<app-verify-phone-modal *ngIf="verifyPhoneIsOpen" (close)="closeVerifyPhone()" (update)="updatePhone($event)" [phoneNumber]="reqData.secondPhoneCode + phoneNumber"></app-verify-phone-modal>

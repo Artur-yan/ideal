@@ -1,0 +1,19 @@
+<div class="P-select-box" app-clickOutside (clickOutside)="close()">
+  <div class="P-select">
+    <div class="P-select-title">
+      <input type="text"
+             class="G-input"
+             [disabled]="disabled"
+             [class.G-error]="error"
+             [(ngModel)]="value"
+             [placeholder]="placeholder"
+             (blur)="onBlur()"
+             (focus)="onFocus()">
+    </div>
+  </div>
+  <div class="P-select-options" [class.show]="dataList.length && isOpen">
+    <div class="P-select-option" *ngFor="let item of dataList" (click)="change(item)">
+      <div class="G-flex G-justify-between G-align-center">{{ item.name }}</div>
+    </div>
+  </div>
+</div>

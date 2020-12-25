@@ -1,0 +1,28 @@
+<div class="P-addresses">
+
+  <p class="G-fs-22 G-mb-3">Shipping address</p>
+  <div class="P-list">
+    <div class="P-address-box P-active" *ngFor="let item of addresses" [class.P-active]="item.isDefault">
+      <div class="P-check"><i class="icon-check"></i></div>
+      <div class="P-address-header">
+        <div class="P-title">{{item.title}}</div>
+        <div class="P-actions">
+          <i class="icon-edit" (click)="toEdit(item.id)"></i>
+          <i class="icon-close" (click)="deleteModal(item.id)"></i>
+        </div>
+      </div>
+      <div class="P-details">
+        <p>{{item.addressName}}</p>
+      </div>
+    </div>
+    <div class="P-add" routerLink="./new">
+      <div class="P-icon-loc">
+        <i class="icon-location"></i>
+      </div>
+      <p>Add new address</p>
+    </div>
+    <app-loader [size]="75" color="#000" *ngIf="inProgress && !addresses.length"></app-loader>
+  </div>
+</div>
+
+<confirm-modal title="Delete Address" text="Are you sure you want to delete your address?" *ngIf="confirmModal" (close)="close()" (confirm)="delete()"></confirm-modal>

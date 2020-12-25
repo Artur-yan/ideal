@@ -1,0 +1,10 @@
+<app-modal [alignCenter]="true" (close)="close.emit()">
+  <div class="G-modal P-confirm-modal">
+    <p class="P-title">{{ title }}</p>
+    <p class="P-desc">{{ text }}</p>
+    <div class="P-confirm-btns G-flex G-justify-between">
+      <button app-button class="G-sm-btn G-gray-btn" (click)="close.emit()">Cancel</button>
+      <button app-button class="G-sm-btn G-red-btn" (click)="confirm.emit()">Yes</button>
+    </div>
+  </div>
+</app-modal>

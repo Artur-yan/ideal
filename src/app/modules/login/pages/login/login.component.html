@@ -1,0 +1,36 @@
+<h2 class="G-text-center G-bold G-mb-4">Log In</h2>
+<app-social-login></app-social-login>
+
+<div class="P-or">
+  <div class="P-line"></div>
+    <span class="G-fs-22">or</span>
+  <div class="P-line"></div>
+</div>
+
+<form class="G-flex G-flex-column G-align-center G-mb-2" (ngSubmit)="submit()">
+  <div class="G-input-group G-flex" *ngIf="reqData.loginType === RegisterTypeEnum.Phone">
+    <div class="P-drop-down">
+      <app-dropdown [disable]="true" [list]="userPhoneNumber" [(value)]="reqData.phoneCode"></app-dropdown>
+    </div>
+    <input placeholder="Enter your phone number" type="number" [(ngModel)]="reqData.phoneNumber" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="G-input-group" *ngIf="reqData.loginType === RegisterTypeEnum.Email">
+    <input placeholder="Enter your email" type="text" [(ngModel)]="reqData.email" [class.G-error]="reqData.errors.email" [autoValidation]="reqData" [ngModelOptions]="{standalone: true}">
+  </div>
+
+  <div class="G-input-group P-password">
+    <input placeholder="Password" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="reqData.password" [autoValidation]="reqData" [class.G-error]="reqData.errors.password" [ngModelOptions]="{standalone: true}">
+    <i [class]="showPassword ? 'icon-open-eye' : 'icon-blind'" (click)="togglePassword()"></i>
+    <div class="G-text-right G-mr-2 G-cursor G-mt-1" routerLink="./forgot-password" [queryParams]="{loginType: reqData.loginType}"><span>Forgot password?</span></div>
+  </div>
+  <button type="submit" app-button [pLoader]="buttonLoading">LOG IN</button>
+</form>
+
+<div class="P-sign-in-suggestions">
+  <div class="G-flex G-justify-between">
+    <span class="G-fs-20 G-cursor">Don't have an account?</span>
+    <p class="G-fs-20 G-bold G-cursor" routerLink="./register" [queryParams]="{loginType: reqData.loginType}">Create an account.</p>
+  </div>
+  <p class="G-text-center G-fs-20 G-bold G-mt-1 G-cursor" *ngIf="reqData.loginType === RegisterTypeEnum.Email"  (click)="reqData.loginType = RegisterTypeEnum.Phone">Log in with Phone number</p>
+  <p class="G-text-center G-fs-20 G-bold G-mt-1 G-cursor" *ngIf="reqData.loginType === RegisterTypeEnum.Phone"  (click)="reqData.loginType = RegisterTypeEnum.Email">Log in with email</p>
+</div>

@@ -1,0 +1,35 @@
+@import "variables";
+
+.P-personal-info {
+
+  .P-form {
+    padding-bottom : 40px;
+    border-bottom  : solid 2px $light-gray;
+
+    .G-input-group {
+      max-width: 50%;
+    }
+  }
+
+  .P-row {
+    display : flex;
+    width   : 100%;
+
+    .G-input-group {
+      margin-right : 15px;
+    }
+  }
+
+  .P-phone {
+    display : flex;
+
+    .P-drop-down {
+      width : 30%;
+    }
+
+    input {
+      flex-grow : 3;
+    }
+  }
+}
+

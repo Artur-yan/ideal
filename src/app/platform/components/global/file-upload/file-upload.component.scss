@@ -1,0 +1,26 @@
+@import "variables";
+
+.P-wrap {
+
+  .P-item {
+    width  : 150px;
+    height : 120px;
+    margin : 0 10px 10px 0;
+    border : 1px solid $light-gray;
+
+    i {
+
+      &.icon-add_1 {
+        font-size : 25px;
+        color     : $light-gray;
+      }
+
+      &.icon-ic_cancel {
+        font-size        : 14px;
+        padding          : 4px;
+        color            : $red;
+        background-color : $white;
+      }
+    }
+  }
+}

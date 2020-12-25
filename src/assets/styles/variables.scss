@@ -1,0 +1,74 @@
+
+// #region Colors
+$black        : #000000;
+$white        : #ffffff;
+$gray-dark-2  : #636363;
+$gray-dark    : #8E8E8E;
+$gray-dark3    : #505050;
+$gray         : #A2A3AD;
+$light        : #F6F6F6;
+$light-gray   : #F2F2F2;
+$light-gray2   : #AEAEAE;
+$green        : #00CFAC;
+$light-green  : #0bbf6b;
+$green        : #2D8100;
+$red          : #EF171B;
+$blue         : #234FFF;
+$el-blue      : #4FDDD9;
+$light-red    : #F60065;
+$yellow       : #e7ad00;
+$light-yellow : #fbc43a;
+$orange       : #F47421;
+$purple       : #EE00FF;
+// #endregion
+
+// #region Alternative styles
+
+$gradient         : linear-gradient(to right, $blue, #5e98d4);
+$shadow           : 0 0 10px rgba(0, 0, 0, .1);
+$shadow-dark      : 0 0 10px rgba(0, 0, 0, .2);
+$error-shadow     : 0 0 15px transparentize($red, 0.6);
+$blue-shadow      : 0 0 40px rgba($blue, .2);
+$blue-dark-shadow : 0 0 40px rgba($blue, .4);
+$radius           : 3px;
+$btn-radius       : 20px;
+
+$laptop-size : 1024px;
+$tab-size    : 768px;
+$phone-size  : 520px;
+
+// #endregion
+
+// #region App Components styles
+$body-color : $white;
+$main-color : $black;
+
+// #font sizes
+$font-14 : calc(10px + .2vw);
+$font-16 : calc(12px + .2vw);
+$font-18 : calc(13px + .2vw);
+$font-20 : calc(16px + .2vw);
+$font-22 : calc(18px + .2vw);
+$font-24 : calc(20px + .2vw);
+$font-26 : calc(22px + .2vw);
+$font-36 : calc(32px + .2vw);
+$font-50 : calc(46px + .2vw);
+$font-60 : calc(56px + .2vw);
+
+$modal-z      : 1000;
+$right-side-z : $modal-z + 1;
+$header-z     : 500;
+
+$left-side-width        : 300px;
+$left-side-closed-width : 100px;
+$left-side-transition   : .3s;
+$header-height          : 200px;
+$padding-vw             : 8vw;
+$padding                : 8%;
+$input-height           : 58px;
+
+// #endregion
+$mobile-width: 600px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$TV-width: 1440px;

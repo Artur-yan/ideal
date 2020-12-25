@@ -1,0 +1,15 @@
+<div class="P-header">
+  <confirm-modal [title]="'Delete Photo'" [text]="'Are you sure you want to delete your profile image?'" *ngIf="confirmModal" (close)="open(false)" (confirm)="deletePhoto()"></confirm-modal>
+  <div class="P-avatar" [bgImage]="user.imageUrl || '/assets/images/avatar.png'">
+  </div>
+  <div class="P-personal-info">
+    <div class="P-info">
+      <p class="G-bold G-fs-24">{{ user.physicalUser.firstName || user.juridicalUser.companyName }} {{ user.physicalUser.lastName || '' }}</p>
+      <span>{{ user.phoneNumber || user.email }}</span>
+    </div>
+    <div class="P-actions">
+      <app-upload-avatar [viewPath]="user.imageUrl" (updateFile)="updatePhoto($event)"></app-upload-avatar>
+      <div class="P-delete-btn" (click)="open(true)" *ngIf="user.imageUrl"><span>Delete</span></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="P-select-box" [class.disabled]="disable" app-clickOutside (clickOutside)="close()">
+  <div class="P-select" (click)="toggle()" [class.G-error]="error">
+    <div class="P-select-title">
+      <p [class.selected]="value.length">{{ title }}</p>
+    </div>
+    <i class="icon-arrow_down_1 P-select-title-icon"></i>
+  </div>
+  <div class="P-select-options" [class.show]="isOpen">
+    <div class="P-select-option"
+      *ngFor="let item of list"
+      [class.P-active]="isSelected(item) || isDisabled(item)"
+      (click)="onSelect(item)">
+      <div class="G-flex G-align-center">
+        <div class="G-mr-1" [checkbox]="isSelected(item)"></div>
+        <p class="G-flex G-justify-between G-align-center">{{item.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

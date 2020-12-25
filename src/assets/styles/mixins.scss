@@ -1,0 +1,38 @@
+@import './variables';
+
+@mixin grid($count, $offset) {
+  width: calc((100% / #{$count}) - #{$offset});
+
+  &:nth-child(odd),
+  &:nth-child(even) {
+    margin-right: calc((#{$count} * #{$offset}) / #{$count - 1});
+  }
+
+  &:nth-child(#{$count}n) {
+    margin-right: 0;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin TV {
+  @media (min-width: #{$desktop-width}) and (max-width: #{$TV-width - 1px}) {
+    @content;
+  }
+}

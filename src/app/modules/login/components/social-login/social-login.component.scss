@@ -1,0 +1,18 @@
+@import "variables";
+
+.P-socials {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .P-social {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid $light-gray;
+    border-radius: 4px;
+    width: 33%;
+    padding: 13px 15px;
+    cursor: pointer;
+  }
+}

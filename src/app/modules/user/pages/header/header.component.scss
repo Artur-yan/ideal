@@ -1,0 +1,47 @@
+@import "variables";
+
+.P-header {
+  display        : flex;
+  border-bottom  : solid 2px $light-gray;
+  padding-bottom : 35px;
+  margin-bottom  : 35px;
+
+  .P-avatar {
+    height           : 140px;
+    width            : 140px;
+    background-color : #8E8E8E;
+    border-radius    : 5px;
+    cursor           : pointer;
+  }
+
+  .P-personal-info {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : space-between;
+    padding         : 5px 20px;
+
+    .P-info {
+      display        : flex;
+      flex-direction : column;
+
+      p {
+        margin-bottom : 8px;
+      }
+    }
+
+    .P-actions {
+      display         : flex;
+      justify-content : space-between;
+      min-width       : 193px;
+
+      .P-delete-btn {
+        max-width       : 90px;
+        padding         : 0 30px;
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        cursor          : pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="P-toolbar-wrap" app-clickOutside (clickOutside)="close()">
+  <div (click)="changeIsOpenState($event)" class="P-toolbar-btn G-flex-justify-center" [class.P-rotate]="rotate">
+    <i class="icon-ic_more"></i>
+  </div>
+  <div class="P-toolbar-content" (click)="close()" [class.show]="isOpen">
+    <ng-content></ng-content>
+  </div>
+</div>

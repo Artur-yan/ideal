@@ -1,0 +1,17 @@
+
+<div *ngIf="items$ | async"></div>
+<div class="G-flex G-justify-between P-pagination">
+  <div class="G-flex">
+    <ng-container *ngIf="pageCount > 1">
+      <p *ngIf="activePage !== 1" (click)="prev()" class="P-btn">prev</p>
+      <ng-container *ngFor="let item of createRange(pageCount)">
+        <p *ngIf="item === pageCount && activePage + activePageInterval + 1 < pageCount">...</p>
+        <p *ngIf="checkPaginationItems(item)" (click)="changePage(item)" [class.active]="activePage === item">
+          {{ item }}
+        </p>
+        <p *ngIf="item === 1 && activePage - activePageInterval - 1 > 1">...</p>
+      </ng-container>
+      <p *ngIf="activePage !== pageCount" (click)="next()" class="P-btn">next</p>
+    </ng-container>
+  </div>
+</div>

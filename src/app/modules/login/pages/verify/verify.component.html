@@ -1,0 +1,33 @@
+<div class="P-sign-in-page G-flex G-center">
+  <div class="P-content">
+    <h2 class="G-text-center G-bold G-mb-4">Enter the code</h2>
+    <p class="P-forgot-desc">
+      We have sent a verification code to the {{ registerParams.registerType == RegisterTypeEnum.Email ? 'email' : 'number' }} {{ registerParams.data }}
+      <span class="P-to-change" (click)="goBack()">Change</span>
+    </p>
+
+    <form class="G-flex G-flex-column G-align-center G-mb-2" (ngSubmit)="verifyCode()">
+      <div class="G-input-group">
+        <div class="P-verify">
+          <input type="number" (input)="oneDigit($event, 0)" [(ngModel)]="verificationReqData.code1" [class.G-error]="verificationReqData.errors.code" [ngModelOptions]="{standalone: true}">
+          <input type="number" (input)="oneDigit($event, 1)" #code2 [(ngModel)]="verificationReqData.code2" [class.G-error]="verificationReqData.errors.code" [ngModelOptions]="{standalone: true}">
+          <input type="number" (input)="oneDigit($event, 2)" #code3 [(ngModel)]="verificationReqData.code3" [class.G-error]="verificationReqData.errors.code" [ngModelOptions]="{standalone: true}">
+          <input type="number" (input)="oneDigit($event, 3)" #code4 [(ngModel)]="verificationReqData.code4" [class.G-error]="verificationReqData.errors.code" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="G-text-center G-mt-4">
+          <p class="G-fs-20 G-mt-1 G-cursor" *ngIf="resend" (click)="setResendTimeout()">Resend the code</p>
+        </div>
+        <div class="G-text-center G-mt-4" *ngIf="!resend">
+          <p class="G-fs-20 G-mt-1">You can get a new code in</p>
+          <p class="G-fs-20 G-mt-1">00: <span *ngIf="resendTimeout < 10">0</span>{{resendTimeout}}</p>
+        </div>
+      </div>
+      <button type="submit" app-button [pLoader]="buttonLoading">VERIFY</button>
+    </form>
+    
+    <div class="P-sign-in-suggestions">
+      <p class="G-text-center G-fs-20 G-mt-1 G-cursor" routerLink="../register" [queryParams]="{registerType: RegisterTypeEnum.Phone}" *ngIf="registerParams.registerType == RegisterTypeEnum.Email">Recover with Phone number</p>
+      <p class="G-text-center G-fs-20 G-mt-1 G-cursor" routerLink="../register" [queryParams]="{registerType: RegisterTypeEnum.Email}" *ngIf="registerParams.registerType == RegisterTypeEnum.Phone">Recover with email</p>
+    </div>
+  </div>
+</div>
